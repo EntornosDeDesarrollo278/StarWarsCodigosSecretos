@@ -1,0 +1,10 @@
+# Ignorar archivos compilados
+bin/
+*.class
+
+# Ignorar archivos de configuración local de Eclipse
+.settings/
+.metadata/
+
+# Ignorar archivos temporales del sistema Mac
+.DS_Store
