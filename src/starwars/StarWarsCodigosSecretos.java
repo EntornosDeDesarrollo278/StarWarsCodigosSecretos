@@ -96,7 +96,7 @@ public class StarWarsCodigosSecretos {
         //Comprobar si el numero es primo
         boolean primo = true;
         for (int i = 2; i <= Math.sqrt(numeroAComprobar) && primo == true; i++) {
-            if (numeroAComprobar % i == 0) {primo = false;}
+            if (numeroAComprobar % i == 0) primo = false;
         }
 
         //Darle valor de 1 o 0 segun si es o no primo
@@ -130,9 +130,7 @@ public class StarWarsCodigosSecretos {
     //Método auxiliar para calcular el factorial de un número.
     public int factorial(int num) {
         int factorial = 1;
-        for (int i = 1; i <= num; i++) {
-            factorial *= i;
-        }
+        for (int i = 1; i <= num; i++) factorial *= i;
         return factorial;
     }
     
@@ -141,7 +139,7 @@ public class StarWarsCodigosSecretos {
         try {
             correcto = false;
             int respuesta_usuario = scanner.nextInt();
-            if (respuesta_usuario == respuesta_correcta) {correcto = true;}
+            if (respuesta_usuario == respuesta_correcta) correcto = true;
         } catch (InputMismatchException e) {}
     }
 
