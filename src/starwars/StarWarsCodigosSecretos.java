@@ -1,5 +1,6 @@
 package starwars;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class StarWarsCodigosSecretos {
@@ -16,6 +17,61 @@ public class StarWarsCodigosSecretos {
         scanner.nextLine();
     }
 
+    //Nivel 1: Calcula la suma de todos los números entre el sistema y el sector.
+    public void nivel1() {
+        int numeroSistema = (int) (Math.random()*10) + 1;  //Del 1 al 10
+        int numeroSector = (int) (Math.random()*11) + 20;  //Del 20 al 30
+
+        System.out.println("=== NIVEL 1 ===");
+        System.out.println("Los problemas empiezan cuando deben realizar un salto hiperespacial hasta el\n" +
+                        "sistema " + numeroSistema + " en el sector " + numeroSector + ", pero el sistema de navegación está estropeado y el\n" +
+                        "computador tiene problemas para calcular parte de las coordenadas de salto.\n" +
+                        "Chewbacca, piloto experto, se da cuenta que falta el cuarto número de la serie.\n" +
+                        "Recuerda de sus tiempos en la academia de pilotos que para calcularlo hay que\n" +
+                        "calcular el sumatorio entre el nº del sistema y el nº del sector (ambos inclusive).\n" +
+                        "¿Qué debe introducir?");
+
+        //Suma todos los números en el rango [numeroSistema, numeroSector]
+        int sumatorio = 0;
+        for (int i = numeroSistema; i <= numeroSector; i++) sumatorio += i;
+        
+        comprobacion(sumatorio);
+    }
+
+    //Nivel 2: Calcula el producto de todos los números entre el id del agente y el de la nave.
+    public void nivel2() {
+        int idAgente = (int) (Math.random()*7) + 1;  //Del 1 al 7
+        int idNave = (int) (Math.random()*5) + 8;    //Del 8 al 12
+
+        System.out.println("\n=== NIVEL 2 ===");
+        System.out.println("Gracias a Chewbacca consiguen llegar al sistema correcto y ven a lo lejos la estrella\n" +
+                        "de la muerte. Como van en una nave imperial robada se aproximan lentamente con\n" +
+                        "la intención de pasar desapercibidos. De repente suena el comunicador. “Aquí\n" +
+                        "agente de espaciopuerto " + idAgente + " contactando con nave imperial " + idNave + ". No están destinados\n" +
+                        "en este sector. ¿Qué hacen aquí?”. Han Solo coge el comunicador e improvisa. “Eh…\n" +
+                        "tenemos un fallo en el… eh… condensador de fluzo... Solicitamos permiso para\n" +
+                        "atracar y reparar la nave”. El agente, que no se anda con tonterías, responde\n" +
+                        "“Proporcione código de acceso o abriremos fuego”. Han Solo ojea rápidamente el\n" +
+                        "manual del piloto que estaba en la guantera y da con la página correcta. El código\n" +
+                        "es el productorio entre el nº del agente y el nº de la nave (ambos inclusive).\n" +
+                        "¿Cuál es el código?");
+
+        //Multiplicar todos los números en el rango [idAgente, idNave]
+        int producto = 1;
+        for (int i = idAgente; i <= idNave; i++) producto *= i;
+
+        comprobacion(producto);
+    }
+    
+    //Comprueba si la respuesta del usuario es igual a la respuesta correcta
+    public void comprobacion(int respuesta_correcta) {
+        try {
+            correcto = false;
+            int respuesta_usuario = scanner.nextInt();
+            if (respuesta_usuario == respuesta_correcta) correcto = true;
+        } catch (InputMismatchException e) {scanner.nextLine();}
+    }
+    
     //Mensaje ganar
     public void ganar() {
         System.out.println("\nLuke Skywalker introduce el tiempo correcto, activa el temporizador y empiezan a\n" +
