@@ -9,6 +9,9 @@ public class StarWarsCodigosSecretosMain {
         //Si la respuesta es correcta seguira la linea del juego, sino perdera
         juego.nivel1();
         if (juego.correcto) juego.nivel2();
+        if (juego.correcto) juego.nivel3();
+        if (juego.correcto) juego.nivel4();
+        if (juego.correcto) juego.nivel5();
         
         //Verifica si has llegado con todas correctas o has fallado en algun nivel
         if (juego.correcto) juego.ganar();

@@ -63,6 +63,78 @@ public class StarWarsCodigosSecretos {
         comprobacion(producto);
     }
     
+    //Nivel 3: Calcula el factorial de la décima parte del numero de niveles.
+    public void nivel3() {
+        int totalNiveles = (int) (Math.random()*51) + 50;  //Del 50 al 100
+
+        System.out.println("\n=== NIVEL 3 ===");
+        System.out.println("Han Solo proporciona el código correcto. Atracan en la estrella de la muerte, se\n" +
+                        "equipan con trajes de soldados imperiales que encuentran en la nave para pasar\n" +
+                        "desapercibidos y bajan. Ahora deben averiguar en qué nivel de los " + totalNiveles + " existentes se\n" +
+                        "encuentra el reactor principal. Se dirigen al primer panel computerizado que\n" +
+                        "encuentran y la Princesa Leia intenta acceder a los planos de la nave pero necesita\n" +
+                        "introducir una clave de acceso. Entonces recuerda la información que le proporcionó\n" +
+                        "Lando Calrissian “La clave de acceso a los planos de la nave es el factorial de N/10\n" +
+                        "(redondeando N hacia abajo), donde N es el nº de niveles”.\n" +
+                        "¿Cual es el nivel correcto?");
+        
+        totalNiveles /= 10;
+
+        comprobacion(factorial(totalNiveles));
+    }
+
+    public void nivel4() {
+        int numeroAComprobar = (int) (Math.random()*91) + 10; //Del 10 al 100
+
+        System.out.println("\n=== NIVEL 4 ===");
+        System.out.println("Gracias a la inteligencia de Leia llegan al nivel correcto y encuentran la puerta\n" +
+                        "acorazada que da al reactor principal. R2D2 se conecta al panel de acceso para\n" +
+                        "intentar hackear el sistema y abrir la puerta. Para desencriptar la clave necesita\n" +
+                        "verificar si el número " + numeroAComprobar + " es primo o no.\n" +
+                        "Si es primo introduce un 1, si no lo es introduce un 0.");
+        
+        //Comprobar si el numero es primo
+        boolean primo = true;
+        for (int i = 2; i <= Math.sqrt(numeroAComprobar) && primo == true; i++) {
+            if (numeroAComprobar % i == 0) primo = false;
+        }
+
+        //Darle valor de 1 o 0 segun si es o no primo
+        int resultado = 0;
+        if (primo) resultado = 1;
+        else resultado = 0;
+
+        comprobacion(resultado);
+    }
+
+    //Nivel 5: Calcula la suma de los factoriales de los minutos y los segundos.
+    public void nivel5() {
+        int minutos = (int) (Math.random()*6) + 5;  //Del 5 al 10
+        int segundos = (int) (Math.random()*6) + 5;  //Del 5 al 10
+
+        System.out.println("\n=== NIVEL 5 ===");
+        System.out.println("Consiguen entrar al reactor. Ya solo queda que Luke Skywalker coloque la bomba,\n" +
+                        "programe el temporizador y salir de allí corriendo. Necesita programarlo para que\n" +
+                        "explote en exactamente " + minutos + " minutos y " + segundos + " segundos, el tiempo suficiente para escapar\n" +
+                        "antes de que explote pero sin que el sistema de seguridad anti-explosivos detecte y\n" +
+                        "desactive la bomba. Pero el temporizador utiliza un reloj Zordgiano un tanto\n" +
+                        "peculiar. Para convertir los minutos y segundos al sistema Zordgiano hay que sumar\n" +
+                        "el factorial de los minutos y el factorial de los segundos.\n" +
+                        "¿Qué valor debe introducir?");
+
+        int suma = factorial(minutos) + factorial(segundos);
+
+        comprobacion(suma);
+    }
+
+    //Método auxiliar para calcular el factorial de un número.
+    public int factorial(int num) {
+        int factorial = 1;
+        for (int i = 1; i <= num; i++) factorial *= i;
+        
+        return factorial;
+    }
+    
     //Comprueba si la respuesta del usuario es igual a la respuesta correcta
     public void comprobacion(int respuesta_correcta) {
         try {
